@@ -1,0 +1,16 @@
+cradle:
+  cabal:
+    - path: "./app"
+      component: "exe:hello-polysemy"
+
+# Включить semanticTokens
+withGHC:
+  - path:
+      glob: "src/**/*.hs"
+      regex: ".*\\.hs$"
+    config:
+      plugins:
+        - name: "ghcide-core"
+          enabled: true
+        - name: "semanticTokens"
+          enabled: true
