@@ -1,0 +1,41 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+module Main where
+
+import Data.Aeson (decode, eitherDecode)
+import Data.ByteString.Lazy.Char8 qualified as L8
+import Data.Either (isRight)
+import Data.Maybe (isJust)
+-- Import modules to test
+
+import Data.Minecraft.Attribute
+import Data.Minecraft.Biome
+import Data.Minecraft.Block
+import Test.Hspec
+import Test.QuickCheck
+
+main :: IO ()
+main = hspec spec
+
+dataDir :: FilePath
+dataDir = "minecraft-data/data/pc/1.21.8"
+
+spec :: Spec
+spec = do
+  describe "Block parsing" $ do
+    it "parses block JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/blocks.json"
+      let blocks = eitherDecode content :: Either String [Block]
+      blocks `shouldSatisfy` isRight
+
+  describe "Biome parsing" $ do
+    it "parses biome JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/biomes.json"
+      let biomes = eitherDecode content :: Either String [Biome]
+      biomes `shouldSatisfy` isRight
+
+  describe "Attribute parsing" $ do
+    it "parses attribute JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/attributes.json"
+      let attributes = eitherDecode content :: Either String [Attribute]
+      attributes `shouldSatisfy` isRight

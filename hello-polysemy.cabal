@@ -22,13 +22,13 @@ library
         Data.Minecraft.Biome,
         Data.Minecraft.Block
     -- other-extensions:
-    build-depends:    base ^>=4.21.0.0, aeson, containers, fused-effects, text, unordered-containers
+    build-depends:    base, aeson, containers, fused-effects, text, unordered-containers
     hs-source-dirs:   app
     default-language: GHC2024
 
 test-suite test-hello-polysemy
     type: exitcode-stdio-1.0
-    main-is: Test.hs
-    build-depends: base, hello-polysemy, hspec, QuickCheck
+    main-is: MinecraftDataSpec.hs
+    build-depends: base, aeson, bytestring, hello-polysemy, hspec, QuickCheck
     hs-source-dirs: test
     default-language: GHC2024

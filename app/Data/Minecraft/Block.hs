@@ -23,6 +23,7 @@ type BlockHarvestTools = M.HashMap Text Bool
 data BlockStateType
   = BlockStateTypeBool
   | BlockStateTypeInt
+  | BlockStateTypeEnum
   deriving (Show)
 
 instance FromJSON BlockStateType where
@@ -30,6 +31,7 @@ instance FromJSON BlockStateType where
     case t of
       "bool" -> pure BlockStateTypeBool
       "int" -> pure BlockStateTypeInt
+      "enum" -> pure BlockStateTypeEnum
       _ -> fail $ "Unknown BlockStateType: " ++ show t
 
 data BlockState = BlockState
@@ -64,7 +66,7 @@ data Block = Block
     blockMinStateId :: Int,
     blockMaxStateId :: Int,
     blockStates :: [BlockState],
-    blockHarvestTools :: BlockHarvestTools,
+    blockHarvestTools :: Maybe BlockHarvestTools,
     blockDrops :: [Int],
     blockBoundingBox :: BlockBoundingBox
   }
@@ -88,6 +90,6 @@ instance FromJSON Block where
       <*> v .: "minStateId"
       <*> v .: "maxStateId"
       <*> v .: "states"
-      <*> v .: "harvestTools"
+      <*> v .:? "harvestTools"
       <*> v .: "drops"
       <*> v .: "boundingBox"

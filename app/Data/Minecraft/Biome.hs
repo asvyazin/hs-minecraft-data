@@ -95,5 +95,5 @@ instance FromJSON Biome where
       <*> v .: "temperature"
       <*> v .: "has_precipitation"
       <*> v .: "dimension"
-      <*> v .: "display_name"
+      <*> v .: "displayName"
       <*> v .: "color"
