@@ -2,8 +2,8 @@
 
 module Data.Minecraft.Biome where
 
-import Control.Applicative (optional)
-import Data.Aeson (FromJSON (parseJSON), withObject, withText, (.:))
+import Data.Aeson (FromJSON (parseJSON), Value (String), withObject, withText, (.:))
+import Data.Aeson.Types (Parser)
 import Data.Text (Text)
 
 data BiomeCategory
@@ -76,12 +76,22 @@ data Biome = Biome
   }
   deriving (Show)
 
+noneOrJust :: (FromJSON a) => Text -> Parser Value -> Parser (Maybe a)
+noneOrJust name parser = do
+  value <- parser
+  case value of
+    String s ->
+      if s == name
+        then pure Nothing
+        else Just <$> parseJSON value
+    _ -> fail $ "Expected String value for field, but got: " ++ show value
+
 instance FromJSON Biome where
   parseJSON = withObject "Biome" $ \v ->
     Biome
       <$> v .: "id"
       <*> v .: "name"
-      <*> optional (v .: "category") -- todo научиться парсить только "none" как Nothing
+      <*> noneOrJust "none" (v .: "category")
       <*> v .: "temperature"
       <*> v .: "has_precipitation"
       <*> v .: "dimension"
