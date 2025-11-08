@@ -15,10 +15,9 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
-executable hello-polysemy
+library
     import:           warnings
-    main-is:          Main.hs
-    other-modules:
+    exposed-modules:
         Data.Minecraft.Attribute,
         Data.Minecraft.Biome,
         Data.Minecraft.Block
