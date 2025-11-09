@@ -11,6 +11,7 @@ import Data.Maybe (isJust)
 import Data.Minecraft.Attribute
 import Data.Minecraft.Biome
 import Data.Minecraft.Block
+import Data.Minecraft.Effect
 import Test.Hspec
 import Test.QuickCheck
 
@@ -39,3 +40,9 @@ spec = do
       content <- L8.readFile $ dataDir ++ "/attributes.json"
       let attributes = eitherDecode content :: Either String [Attribute]
       attributes `shouldSatisfy` isRight
+
+  describe "Effect parsing" $ do
+    it "parses effect JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/effects.json"
+      let effects = eitherDecode content :: Either String [Effect]
+      effects `shouldSatisfy` isRight

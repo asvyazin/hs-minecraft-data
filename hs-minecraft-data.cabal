@@ -1,5 +1,5 @@
 cabal-version:      3.0
-name:               hello-polysemy
+name:               hs-minecraft-data
 version:            0.1.0.0
 -- synopsis:
 -- description:
@@ -20,15 +20,16 @@ library
     exposed-modules:
         Data.Minecraft.Attribute,
         Data.Minecraft.Biome,
-        Data.Minecraft.Block
+        Data.Minecraft.Block,
+        Data.Minecraft.Effect
     -- other-extensions:
-    build-depends:    base, aeson, containers, fused-effects, text, unordered-containers
+    build-depends:    base, aeson, containers, text, unordered-containers
     hs-source-dirs:   src
     default-language: GHC2024
 
 test-suite test-hello-polysemy
     type: exitcode-stdio-1.0
     main-is: MinecraftDataSpec.hs
-    build-depends: base, aeson, bytestring, hello-polysemy, hspec, QuickCheck
+    build-depends: base, aeson, bytestring, hs-minecraft-data, hspec, QuickCheck
     hs-source-dirs: test
     default-language: GHC2024
