@@ -27,7 +27,7 @@ library
     hs-source-dirs:   src
     default-language: GHC2024
 
-test-suite test-hello-polysemy
+test-suite test-hs-minecraft-data
     type: exitcode-stdio-1.0
     main-is: MinecraftDataSpec.hs
     build-depends: base, aeson, bytestring, hs-minecraft-data, hspec, QuickCheck
