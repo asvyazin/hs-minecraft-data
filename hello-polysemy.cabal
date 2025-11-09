@@ -23,7 +23,7 @@ library
         Data.Minecraft.Block
     -- other-extensions:
     build-depends:    base, aeson, containers, fused-effects, text, unordered-containers
-    hs-source-dirs:   app
+    hs-source-dirs:   src
     default-language: GHC2024
 
 test-suite test-hello-polysemy
