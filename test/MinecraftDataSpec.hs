@@ -12,6 +12,7 @@ import Data.Minecraft.Attribute
 import Data.Minecraft.Biome
 import Data.Minecraft.Block
 import Data.Minecraft.Effect
+import Data.Minecraft.Enchantment
 import Test.Hspec
 import Test.QuickCheck
 
@@ -46,3 +47,9 @@ spec = do
       content <- L8.readFile $ dataDir ++ "/effects.json"
       let effects = eitherDecode content :: Either String [Effect]
       effects `shouldSatisfy` isRight
+
+  describe "Enchantment parsing" $ do
+    it "parses enchantment JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/enchantments.json"
+      let enchantments = eitherDecode content :: Either String [Enchantment]
+      enchantments `shouldSatisfy` isRight
