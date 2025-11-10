@@ -24,7 +24,8 @@ library
         Data.Minecraft.Effect,
         Data.Minecraft.Enchantment,
         Data.Minecraft.Entity,
-        Data.Minecraft.Food
+        Data.Minecraft.Food,
+        Data.Minecraft.Instrument
     -- other-extensions:
     build-depends:    base, aeson, containers, text, unordered-containers
     hs-source-dirs:   src
