@@ -22,7 +22,8 @@ library
         Data.Minecraft.Biome,
         Data.Minecraft.Block,
         Data.Minecraft.Effect,
-        Data.Minecraft.Enchantment
+        Data.Minecraft.Enchantment,
+        Data.Minecraft.Entity
     -- other-extensions:
     build-depends:    base, aeson, containers, text, unordered-containers
     hs-source-dirs:   src
