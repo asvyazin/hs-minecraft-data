@@ -14,6 +14,7 @@ import Data.Minecraft.Block
 import Data.Minecraft.Effect
 import Data.Minecraft.Enchantment
 import Data.Minecraft.Entity
+import Data.Minecraft.Food
 import Test.Hspec
 import Test.QuickCheck
 
@@ -60,3 +61,9 @@ spec = do
       content <- L8.readFile $ dataDir ++ "/entities.json"
       let entities = eitherDecode content :: Either String [Entity]
       entities `shouldSatisfy` isRight
+
+  describe "Food parsing" $ do
+    it "parses food JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/foods.json"
+      let foods = eitherDecode content :: Either String [Food]
+      foods `shouldSatisfy` isRight

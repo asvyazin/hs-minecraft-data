@@ -23,7 +23,8 @@ library
         Data.Minecraft.Block,
         Data.Minecraft.Effect,
         Data.Minecraft.Enchantment,
-        Data.Minecraft.Entity
+        Data.Minecraft.Entity,
+        Data.Minecraft.Food
     -- other-extensions:
     build-depends:    base, aeson, containers, text, unordered-containers
     hs-source-dirs:   src

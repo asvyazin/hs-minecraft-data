@@ -1,7 +1,7 @@
 cradle:
   cabal:
-    - path: "./app"
-      component: "exe:hello-polysemy"
+    - path: "./src"
+      component: "lib:hs-minecraft-data"
 
 # Включить semanticTokens
 withGHC:

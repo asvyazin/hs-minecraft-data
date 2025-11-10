@@ -2,7 +2,7 @@
 
 module Data.Minecraft.Effect where
 
-import Data.Aeson (FromJSON (parseJSON), Value (String), withObject, withText, (.:))
+import Data.Aeson (FromJSON (parseJSON), withObject, withText, (.:))
 import Data.Text (Text)
 
 data EffectType
