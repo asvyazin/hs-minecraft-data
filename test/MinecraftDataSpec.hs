@@ -16,6 +16,7 @@ import Data.Minecraft.Enchantment
 import Data.Minecraft.Entity
 import Data.Minecraft.Food
 import Data.Minecraft.Instrument
+import Data.Minecraft.Item
 import Test.Hspec
 import Test.QuickCheck
 
@@ -74,3 +75,9 @@ spec = do
       content <- L8.readFile $ dataDir ++ "/instruments.json"
       let instruments = eitherDecode content :: Either String [Instrument]
       instruments `shouldSatisfy` isRight
+
+  describe "Item parsing" $ do
+    it "parses item JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/items.json"
+      let items = eitherDecode content :: Either String [Item]
+      items `shouldSatisfy` isRight
