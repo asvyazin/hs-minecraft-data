@@ -18,6 +18,8 @@ import Data.Minecraft.Food
 import Data.Minecraft.Instrument
 import Data.Minecraft.Item
 import Data.Minecraft.Material
+import Data.Minecraft.Particle
+import Data.Minecraft.Sound
 import Test.Hspec
 import Test.QuickCheck
 
@@ -88,3 +90,15 @@ spec = do
       content <- L8.readFile $ dataDir ++ "/materials.json"
       let materials = eitherDecode content :: Either String Materials
       materials `shouldSatisfy` isRight
+
+  describe "Particle parsing" $ do
+    it "parses particle JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/particles.json"
+      let particles = eitherDecode content :: Either String [Particle]
+      particles `shouldSatisfy` isRight
+
+  describe "Sound parsing" $ do
+    it "parses sound JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/sounds.json"
+      let sounds = eitherDecode content :: Either String [Sound]
+      sounds `shouldSatisfy` isRight
