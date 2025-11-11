@@ -27,9 +27,11 @@ library
         Data.Minecraft.Food,
         Data.Minecraft.Instrument,
         Data.Minecraft.Item,
+        Data.Minecraft.Language,
         Data.Minecraft.Material,
         Data.Minecraft.Particle,
-        Data.Minecraft.Sound
+        Data.Minecraft.Sound,
+        Data.Minecraft.Version
     -- other-extensions:
     build-depends:    base, aeson, containers, text, unordered-containers
     hs-source-dirs:   src

@@ -17,9 +17,11 @@ import Data.Minecraft.Entity
 import Data.Minecraft.Food
 import Data.Minecraft.Instrument
 import Data.Minecraft.Item
+import Data.Minecraft.Language
 import Data.Minecraft.Material
 import Data.Minecraft.Particle
 import Data.Minecraft.Sound
+import Data.Minecraft.Version
 import Test.Hspec
 import Test.QuickCheck
 
@@ -102,3 +104,15 @@ spec = do
       content <- L8.readFile $ dataDir ++ "/sounds.json"
       let sounds = eitherDecode content :: Either String [Sound]
       sounds `shouldSatisfy` isRight
+
+  describe "Version parsing" $ do
+    it "parses version JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/version.json"
+      let version = eitherDecode content :: Either String Version
+      version `shouldSatisfy` isRight
+
+  describe "Language parsing" $ do
+    it "parses language JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/language.json"
+      let language = eitherDecode content :: Either String Language
+      language `shouldSatisfy` isRight
