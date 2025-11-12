@@ -20,6 +20,7 @@ import Data.Minecraft.Item
 import Data.Minecraft.Language
 import Data.Minecraft.Material
 import Data.Minecraft.Particle
+import Data.Minecraft.Recipe
 import Data.Minecraft.Sound
 import Data.Minecraft.Tint
 import Data.Minecraft.Version
@@ -123,3 +124,9 @@ spec = do
       content <- L8.readFile $ dataDir ++ "/tints.json"
       let tints = eitherDecode content :: Either String Tints
       tints `shouldSatisfy` isRight
+
+  describe "Recipe parsing" $ do
+    it "parses recipe JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/recipes.json"
+      let recipes = eitherDecode content :: Either String Recipes
+      recipes `shouldSatisfy` isRight

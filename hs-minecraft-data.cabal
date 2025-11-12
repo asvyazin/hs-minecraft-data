@@ -30,6 +30,7 @@ library
         Data.Minecraft.Language,
         Data.Minecraft.Material,
         Data.Minecraft.Particle,
+        Data.Minecraft.Recipe,
         Data.Minecraft.Sound,
         Data.Minecraft.Tint,
         Data.Minecraft.Version
