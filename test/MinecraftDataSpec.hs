@@ -21,6 +21,7 @@ import Data.Minecraft.Language
 import Data.Minecraft.Material
 import Data.Minecraft.Particle
 import Data.Minecraft.Sound
+import Data.Minecraft.Tint
 import Data.Minecraft.Version
 import Test.Hspec
 import Test.QuickCheck
@@ -116,3 +117,9 @@ spec = do
       content <- L8.readFile $ dataDir ++ "/language.json"
       let language = eitherDecode content :: Either String Language
       language `shouldSatisfy` isRight
+
+  describe "Tint parsing" $ do
+    it "parses tint JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/tints.json"
+      let tints = eitherDecode content :: Either String Tints
+      tints `shouldSatisfy` isRight
