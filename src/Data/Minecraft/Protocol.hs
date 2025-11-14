@@ -16,7 +16,7 @@ data ProtocolTypeArrayData = ProtocolTypeArrayData
   }
   deriving (Show)
 
-data ProtocolTypeContainerField = ProtocolTypeObjectField
+data ProtocolTypeContainerField = ProtocolTypeContainerField
   { protocolTypeContainerFieldName :: Maybe Text,
     protocolTypeContainerFieldAnon :: Maybe Bool,
     protocolTypeContainerFieldType :: ProtocolType
@@ -66,7 +66,7 @@ instance FromJSON ProtocolTypeContainerField where
       then
         fail $ "Unknown keys: " ++ show unknownKeys
       else
-        ProtocolTypeObjectField
+        ProtocolTypeContainerField
           <$> v .:? "name"
           <*> v .:? "anon"
           <*> v .: "type"
