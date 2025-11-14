@@ -20,6 +20,7 @@ import Data.Minecraft.Item
 import Data.Minecraft.Language
 import Data.Minecraft.Material
 import Data.Minecraft.Particle
+import Data.Minecraft.Protocol
 import Data.Minecraft.Recipe
 import Data.Minecraft.Sound
 import Data.Minecraft.Tint
@@ -130,3 +131,9 @@ spec = do
       content <- L8.readFile $ dataDir ++ "/recipes.json"
       let recipes = eitherDecode content :: Either String Recipes
       recipes `shouldSatisfy` isRight
+
+  describe "Protocol parsing" $ do
+    it "parses protocol JSON correctly" $ do
+      content <- L8.readFile $ dataDir ++ "/protocol.json"
+      let protocolResult = eitherDecode content :: Either String Protocol
+      protocolResult `shouldSatisfy` isRight
