@@ -9,6 +9,7 @@ cradle:
               - "-package base"
               - "-package directory"
               - "-package filepath"
+              - "-package haskell-src-exts"
     - path: ./
       config:
         cradle:
