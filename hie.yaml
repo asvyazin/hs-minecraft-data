@@ -2,6 +2,8 @@ cradle:
   cabal:
     - path: "./src"
       component: "lib:hs-minecraft-data"
+    - path: "./test"
+      component: "test:test-hs-minecraft-data"
 
 # Включить semanticTokens
 withGHC:
