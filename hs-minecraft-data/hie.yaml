@@ -1,0 +1,18 @@
+cradle:
+  cabal:
+    - path: "./src"
+      component: "lib:hs-minecraft-data"
+    - path: "./test"
+      component: "test:test-hs-minecraft-data"
+
+# Включить semanticTokens
+withGHC:
+  - path:
+      glob: "src/**/*.hs"
+      regex: ".*\\.hs$"
+    config:
+      plugins:
+        - name: "ghcide-core"
+          enabled: true
+        - name: "semanticTokens"
+          enabled: true

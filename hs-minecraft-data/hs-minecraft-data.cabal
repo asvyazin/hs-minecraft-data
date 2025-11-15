@@ -5,16 +5,8 @@ license:            BSD-3-Clause
 license-file:       LICENSE
 author:             Alexander Svyazin
 maintainer:         guybrush@live.ru
-build-type:         Custom
+build-type:         Simple
 extra-doc-files:    CHANGELOG.md
-
-custom-setup
-  setup-depends:
-    base,
-    Cabal,
-    directory,
-    filepath,
-    haskell-src-exts
 
 common warnings
   ghc-options: -Wall
@@ -46,6 +38,6 @@ library
 test-suite test-hs-minecraft-data
     type: exitcode-stdio-1.0
     main-is: MinecraftDataSpec.hs
-    build-depends: base, aeson, bytestring, haskell-src-exts, hs-minecraft-data, hspec, QuickCheck, text, unordered-containers
+    build-depends: base, aeson, bytestring, hs-minecraft-data, hspec, QuickCheck, text, unordered-containers
     hs-source-dirs: test
     default-language: GHC2024

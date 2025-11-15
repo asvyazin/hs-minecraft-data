@@ -32,7 +32,7 @@ main :: IO ()
 main = hspec spec
 
 dataDir :: FilePath
-dataDir = "minecraft-data/data/pc/1.21.8"
+dataDir = "../minecraft-data/data/pc/1.21.8"
 
 spec :: Spec
 spec = do
