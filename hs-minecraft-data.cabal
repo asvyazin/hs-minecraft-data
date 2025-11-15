@@ -1,19 +1,23 @@
 cabal-version:      3.0
 name:               hs-minecraft-data
 version:            0.1.0.0
--- synopsis:
--- description:
 license:            BSD-3-Clause
 license-file:       LICENSE
 author:             Alexander Svyazin
 maintainer:         guybrush@live.ru
--- copyright:
-build-type:         Simple
+build-type:         Custom
 extra-doc-files:    CHANGELOG.md
--- extra-source-files:
+
+custom-setup
+  setup-depends:
+    base,
+    Cabal,
+    process,
+    directory,
+    filepath
 
 common warnings
-    ghc-options: -Wall
+  ghc-options: -Wall
 
 library
     import:           warnings
@@ -35,7 +39,6 @@ library
         Data.Minecraft.Sound,
         Data.Minecraft.Tint,
         Data.Minecraft.Version
-    -- other-extensions:
     build-depends:    base, aeson, containers, text, unordered-containers, vector
     hs-source-dirs:   src
     default-language: GHC2024
